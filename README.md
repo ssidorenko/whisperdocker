@@ -32,6 +32,8 @@ This can take a while before the container is provisioned. You can check its sta
 runai describe job transcription1 -p lhst-yourgasparhandle
 ```
 
+Wait for STATUS to go from PENDING to RUNNING.
+
 Note down the full name of the pod which should be something like "transcription-1-0-0"
 
 ### Step 4. Copy files to the pod
