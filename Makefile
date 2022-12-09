@@ -1,4 +1,4 @@
-REGISTRY := ic-registry.epfl.ch
+REGISTRY := ic-registry.epfl.ch/lhst
 NAME   := whisper
 TAG    := $$(git log -1 --pretty=%h)
 IMG    := ${NAME}:${TAG}
