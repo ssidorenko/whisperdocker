@@ -65,7 +65,15 @@ You will see results of the transcription appearing live in your terminal.
 ### Step 7. Retrieve the transcription
 
 ```
-kubectl cp transcription1-0-0:/workspace/Someaudio.mp3.txt ./
-kubectl cp transcription1-0-0:/workspace/Someaudio.mp3.srt ./
+kubectl cp transcription1-0-0:/workspace/Someaudio.mp3.txt ./Someaudio.mp3.txt
+kubectl cp transcription1-0-0:/workspace/Someaudio.mp3.srt ./Someaudio.mp3.srt
+```
+
+### Step 8. Stop the container
+Make sure you have retrieved the trancriptions first!
+
+Then, delete the job:
+```
+runai delete job transcription1
 ```
 
