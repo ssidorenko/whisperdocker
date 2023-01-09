@@ -10,7 +10,7 @@ And here: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 ### Step 1. create a RunAI account
 
-Follow the docs here: https://icitdocs.epfl.ch/display/clusterdocs/Getting+Started+with+RunAI+SAML (only accessible from EPFL network or VPN).
+Follow the docs here up to step 4: https://icitdocs.epfl.ch/display/clusterdocs/Getting+Started+with+RunAI+SAML (only accessible from EPFL network or VPN).
 
 ### Step 2. create an interactive workload
 
@@ -26,7 +26,7 @@ runai submit transcription1 -i ic-registry.epfl.ch/lhst/whisper -g 1 --interacti
 
 ### Step 3. Check that the container is running and get the name of the pod.
 
-This can take a while before the container is provisioned. You can check its status using 
+This can take a while (about 10 minutes usually) before the container is provisioned. You can check its status using 
 
 ```
 runai describe job transcription1 -p lhst-yourgasparhandle
@@ -41,7 +41,7 @@ Note down the full name of the pod which should be something like "transcription
 Copy a file from your desktop to the pod's workspace:
 
 ```
-kubectl cp ~/Desktop/Someaudio.mp3 transcription-1-0-0:/workspace/
+kubectl cp ~/Desktop/Someaudio.mp3 transcription1-0-0:/workspace/
 ```
 
 ### Step 5. get a shell to your container
@@ -49,7 +49,7 @@ kubectl cp ~/Desktop/Someaudio.mp3 transcription-1-0-0:/workspace/
 When the job is running, you can get a shell to the container using
 
 ```
-runai bash build1
+runai bash transcription1
 ```
 
 ### Step 6. run the transcription 
@@ -65,7 +65,7 @@ You will see results of the transcription appearing live in your terminal.
 ### Step 7. Retrieve the transcription
 
 ```
-kubectl cp transcription-1-0-0:/workspace/Someaudio.mp3.txt ./
-kubectl cp transcription-1-0-0:/workspace/Someaudio.mp3.srt ./
+kubectl cp transcription1-0-0:/workspace/Someaudio.mp3.txt ./
+kubectl cp transcription1-0-0:/workspace/Someaudio.mp3.srt ./
 ```
 
